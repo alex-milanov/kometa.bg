@@ -36,7 +36,7 @@ header {
 	position: absolute;
 	display: block;
 	background: #ac0101;
-	top: 30px;
+	top: 50px;
 	left: 0px;
 	right: 0px;
 	height: 100px;
@@ -67,7 +67,6 @@ header {
 		position: absolute;
 		top: 0px;
 		right: 0px;
-		width: 300px;
 		font-size: 18px;
 		text-align: right;
 		p, a {
@@ -81,7 +80,7 @@ header {
 
 #content {
 	width: 800px;
-	margin: 180px auto;
+	margin: 200px auto;
 	img {
 		width: 100%;
 		border: 1px solid #597c44;
