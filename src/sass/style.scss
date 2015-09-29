@@ -1,0 +1,94 @@
+
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,200,200italic,300,300italic,400italic,500,500italic,600,600italic,700,700italic&subset=latin,cyrillic);
+
+html {
+	background: #040404;
+	overflow: none;
+}
+
+body {
+	background: linear-gradient(to right, rgba(89,124,68,0.5) 0%,rgba(4,4,4,1) 300px,rgba(4,4,4,1) 100%); /* W3C */
+	color: #fdfdfd;
+	font-family: "Exo 2";
+	font-size: 20px;
+	margin: 0px;
+	padding: 0px;
+	overflow-y: scroll;
+	display: block;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	position: absolute;
+}
+
+a {
+	text-decoration: none;
+	padding: 0px;
+	margin: 0px;
+	color: #fdfdfd;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+
+header {
+	position: absolute;
+	display: block;
+	background: #ac0101;
+	top: 30px;
+	left: 0px;
+	right: 0px;
+	height: 100px;
+	border: 2px solid #fdfdfd;
+	border-width: 2px 0px;
+	box-sizing: border-box;
+	z-index: 99999;
+	#logo {
+		width: 200px;
+		margin: -50px 0px 0px 30px;
+	}
+	h1, h2 {
+		position: absolute;
+		margin: 0px;
+		padding: 0px;
+	}
+	h1 {
+		top: 0px;
+		left: 290px;
+		font-size: 56px;
+	}
+	h2 {
+		top: 62px;
+		left: 355px;
+		font-size: 20px;
+	}
+	.contact {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		width: 300px;
+		font-size: 18px;
+		text-align: right;
+		p, a {
+			margin: 7px;
+			padding: 0px;
+			display: block;
+		}
+	}
+}
+
+
+#content {
+	width: 800px;
+	margin: 180px auto;
+	img {
+		width: 100%;
+		border: 1px solid #597c44;
+	}
+	#important {
+		color: #f4e915;
+		font-weight: 700;
+		font-size: 20px;
+	}
+}
