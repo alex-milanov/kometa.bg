@@ -5,6 +5,7 @@ var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var jade = require('gulp-jade');
+var jadejs = require('jade');
 var nodemon = require('gulp-nodemon');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
@@ -17,6 +18,7 @@ var express = require('express');
 var app = express();
 var marked = require('marked'); // For :markdown filter in jade
 var path = require('path');
+var through = require('through2');
 
 
 var paths = {
@@ -63,6 +65,46 @@ gulp.task('jade', function(done) {
 			.pipe( livereload())
 			.on('end',done);
 	});
+});
+
+
+gulp.task('content', function(done) {
+	
+	gulp.src('./content/*.md')
+		.pipe(through.obj(function(file, enc, cb) {
+			if (file.isNull()) {
+				// return empty file
+				return cb(null, file);
+			}
+
+			marked(file.contents.toString(), null, function(err, data){
+
+				var html = jadejs.renderFile("./src/jade/layout.jade", {
+					content: data,
+					pretty: true
+				})
+
+				file.contents = new Buffer(html);
+				file.path = gutil.replaceExtension(file.path, '.html');
+				cb(null, file);
+			});
+
+		
+
+
+
+			/*if (file.isBuffer()) {
+				file.contents = Buffer.concat([prefixText, file.contents]);
+			}
+			if (file.isStream()) {
+				file.contents = file.contents.pipe(prefixStream(prefixText));
+			}*/
+
+
+		}))
+		.pipe(gulp.dest('./dist/'))
+		// .pipe( livereload())
+		.on('end',done);
 });
 
 gulp.task('img', function(done) {
