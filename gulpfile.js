@@ -25,7 +25,8 @@ var paths = {
 	sass: ['./src/sass/**/*.scss'],
 	jade: ['./src/jade/**/*.jade'],
 	js: ['./src/js/**/*.js'],
-	img: ['./src/img/**/*']
+	img: ['./src/img/**/*'],
+	content: ['./content/**/*.md']
 };
 
 gulp.task('sass', function(done) {
@@ -177,9 +178,10 @@ gulp.task('watch', function() {
 	gulp.watch(paths.jade, ['jade']);
 	gulp.watch(paths.js, ['js']);
 	gulp.watch(paths.img, ['img']);
+	gulp.watch(paths.content, ['content']);
 });
 
-gulp.task('build', ['sass','jade','js','img','bower-files']);
+gulp.task('build', ['sass','jade','js','img','bower-files','content']);
 
 gulp.task('serve', ['express','livereload','watch']);
 
